@@ -20,7 +20,7 @@ router.route("*", "/graphql", async (req, res) => {
 
   const request = {
     body: body,
-    headers: Object.fromEntries(req.headers.entries()),
+    headers: req.headers,
     method: req.method,
     query: req.query,
   };
@@ -48,8 +48,8 @@ router.route("*", "/graphql", async (req, res) => {
  * Run a route so the default handler doesnt throw a 404
  */
 router.route("*", "*", (req, res) => {
-  res.status = 404
-  res.send("Page Not Found")
+  res.status = 404;
+  res.send("Page Not Found");
 });
 
 router.listen();

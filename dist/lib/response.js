@@ -2,10 +2,26 @@ export default class FPResponse {
     constructor() {
         this._body = "";
         this.status = 0;
-        this.headers = new Headers();
+        this._headers = new Headers();
     }
     send(body) {
         this._body = body;
+    }
+    // For better express support
+    end(body) {
+        this.send(body);
+    }
+    writeHead(statusCode, headers) {
+        this.status = statusCode;
+        Object.keys(headers).map((k) => {
+            this._headers.set(k, headers[k]);
+        });
+    }
+    get headers() {
+        return Object.fromEntries(this._headers.entries());
+    }
+    setHeader(key, value) {
+        this._headers.set(key, value);
     }
     get body() {
         return this._body;
