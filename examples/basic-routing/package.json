@@ -19,7 +19,9 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "@fastly/js-compute": "^0.2.0"
+    "@fastly/js-compute": "^0.2.0",
+    "graphql": "^15.7.1",
+    "graphql-helix": "^1.8.4"
   },
   "scripts": {
     "prebuild": "webpack",
