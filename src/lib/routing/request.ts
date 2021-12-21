@@ -35,7 +35,6 @@ export default class FPRequest {
   }
 
   private reSerializeCookies() {
-    console.log("reSerializeCookies")
     this._headers.set("cookie", Object.entries(this._cookies).map(([key, value]) => `${key}=${value}`).join("; "));
   }
 
